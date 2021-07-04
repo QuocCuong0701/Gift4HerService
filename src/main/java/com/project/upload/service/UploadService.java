@@ -16,7 +16,7 @@ import java.nio.file.Files;
 @Component
 public class UploadService {
 
-    static final String BUCKET_NAME = "upload-file-fb.appspot.com";
+    static final String BUCKET_NAME = "photosgallery4her.appspot.com";
     static final String PRIVATE_KEY_JSON_PATH = "upload-file.json";
     static final String DOWNLOAD_URL = "https://firebasestorage.googleapis.com/v0/b/" + BUCKET_NAME + "/o/%s?alt=media";
 
