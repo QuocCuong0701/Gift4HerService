@@ -6,21 +6,39 @@ import java.util.Date;
 @Entity
 @Table(name = "FILE")
 public class FileEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "FILE_ID")
     private Long id;
+
+    @Column(name = "FILE_NAME")
     private String fileName;
+
+    @Column(name = "FILE_URI_ORIGINAL")
     private String fileUriOriginal;
+
+    @Column(name = "FILE_URI_CROP")
     private String fileUriCrop;
+
+    @Column(name = "SIZE")
     private Double size;
+
+    @Column(name = "STATUS")
     private int status;
+
+    @Column(name = "CATEGORY")
     private String category;
+
+    @Column(name = "ORDER_NO")
+    private Integer orderNo;
+
+    @Column(name = "CREATED_DATE")
     private Date createdDate;
 
     public FileEntity() {
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "FILE_ID")
     public Long getId() {
         return id;
     }
@@ -29,7 +47,6 @@ public class FileEntity {
         this.id = id;
     }
 
-    @Column(name = "FILE_NAME")
     public String getFileName() {
         return fileName;
     }
@@ -38,7 +55,6 @@ public class FileEntity {
         this.fileName = fileName;
     }
 
-    @Column(name = "FILE_URI_ORIGINAL")
     public String getFileUriOriginal() {
         return fileUriOriginal;
     }
@@ -47,12 +63,10 @@ public class FileEntity {
         this.fileUriOriginal = fileUriOriginal;
     }
 
-    @Column(name = "FILE_URI_CROP")
     public String getFileUriCrop() {
         return fileUriCrop;
     }
 
-    @Column(name = "SIZE")
     public Double getSize() {
         return size;
     }
@@ -61,7 +75,6 @@ public class FileEntity {
         this.size = size;
     }
 
-    @Column(name = "STATUS")
     public int getStatus() {
         return status;
     }
@@ -74,7 +87,6 @@ public class FileEntity {
         this.fileUriCrop = fileUriCrop;
     }
 
-    @Column(name = "CATEGORY")
     public String getCategory() {
         return category;
     }
@@ -83,7 +95,14 @@ public class FileEntity {
         this.category = category;
     }
 
-    @Column(name = "CREATED_DATE")
+    public Integer getOrderNo() {
+        return orderNo;
+    }
+
+    public void setOrderNo(Integer orderNo) {
+        this.orderNo = orderNo;
+    }
+
     public Date getCreatedDate() {
         return createdDate;
     }
