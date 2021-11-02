@@ -30,10 +30,10 @@ public class UploadController {
     }
 
     @PostMapping("/download/{fileName}")
-    public Object download(@PathVariable String fileName) throws IOException {
+    public Object download(@PathVariable String fileName) {
         try {
-            Blob blob = (Blob) fileService.download(fileName);
-            return Utils.responseData(HttpStatus.OK, true, "Successfully Downloaded.", blob);
+            fileService.download(fileName);
+            return Utils.responseData(HttpStatus.OK, true, "Successfully Downloaded.", null);
         } catch (Exception e) {
             return Utils.responseData(HttpStatus.INTERNAL_SERVER_ERROR, false, "Unsuccessfully Downloaded.", e);
         }

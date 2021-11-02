@@ -105,7 +105,7 @@ public class FileService {
     public Object download(String fileName) {
         try {
             String destFileName = UUID.randomUUID().toString().concat(Utils.getExtension(fileName));
-            String destFilePath = "/upload_file/" + destFileName;
+            String destFilePath = System.getProperty("user.home") + "/Downloads/" + destFileName;
 
             Credentials credentials = GoogleCredentials.fromStream(new FileInputStream(UploadService.PRIVATE_KEY_JSON_PATH));
             Storage storage = StorageOptions.newBuilder().setCredentials(credentials).build().getService();
