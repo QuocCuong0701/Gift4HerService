@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "FILE")
+@Table(name = "file")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter

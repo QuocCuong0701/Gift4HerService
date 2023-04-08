@@ -6,7 +6,7 @@ networks:
 
 services:
   upload-app:
-    image: "lquoccuongl/repo:v.0.0.1"
+    image: "lquoccuongl/gift4her:v0.0.2"
     container_name: upload-app
     ports:
       - "8080:8080"
