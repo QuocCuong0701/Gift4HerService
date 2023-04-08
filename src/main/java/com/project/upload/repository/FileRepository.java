@@ -20,7 +20,7 @@ public interface FileRepository extends JpaRepository<FileEntity, Long> {
      *
      * @return {@link List<FileEntity>}
      */
-    @Query("SELECT fe FROM FileEntity fe WHERE fe.status = " + Constants.FILE.STATUS.FIREBASE.EXIST + " ORDER BY fe.orderNo asc")
+    @Query("SELECT fe FROM FileEntity fe WHERE fe.status = " + Constants.FirebaseStatus.EXIST + " ORDER BY fe.orderNo asc")
     List<FileEntity> findAllFiles();
 
     /**
@@ -29,6 +29,6 @@ public interface FileRepository extends JpaRepository<FileEntity, Long> {
      * @param id - file id
      */
     @Modifying
-    @Query("UPDATE FileEntity fe SET fe.status = " + Constants.FILE.STATUS.FIREBASE.NOT_EXIST + " WHERE fe.id = :id")
+    @Query("UPDATE FileEntity fe SET fe.status = " + Constants.FirebaseStatus.NOT_EXIST + " WHERE fe.id = :id")
     void updateFileStatusNotExist(@Param(value = "id") Long id);
 }

@@ -1,10 +1,18 @@
 package com.project.upload.entity;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
 @Table(name = "FILE")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Builder
 public class FileEntity {
 
     @Id
@@ -22,7 +30,7 @@ public class FileEntity {
     private String fileUriCrop;
 
     @Column(name = "SIZE")
-    private Double size;
+    private Long size;
 
     @Column(name = "STATUS")
     private int status;
@@ -36,78 +44,16 @@ public class FileEntity {
     @Column(name = "CREATED_DATE")
     private Date createdDate;
 
-    public FileEntity() {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        FileEntity that = (FileEntity) o;
+        return id.equals(that.id);
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getFileName() {
-        return fileName;
-    }
-
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
-
-    public String getFileUriOriginal() {
-        return fileUriOriginal;
-    }
-
-    public void setFileUriOriginal(String fileUriOriginal) {
-        this.fileUriOriginal = fileUriOriginal;
-    }
-
-    public String getFileUriCrop() {
-        return fileUriCrop;
-    }
-
-    public Double getSize() {
-        return size;
-    }
-
-    public void setSize(Double size) {
-        this.size = size;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
-    public void setFileUriCrop(String fileUriCrop) {
-        this.fileUriCrop = fileUriCrop;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public Integer getOrderNo() {
-        return orderNo;
-    }
-
-    public void setOrderNo(Integer orderNo) {
-        this.orderNo = orderNo;
-    }
-
-    public Date getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

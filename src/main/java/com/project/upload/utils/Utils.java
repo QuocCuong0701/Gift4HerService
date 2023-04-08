@@ -53,9 +53,6 @@ public class Utils {
 
     /**
      * Crop image function
-     *
-     * @param image
-     * @return
      */
     public static BufferedImage cropImageSquare(byte[] image) {
         try {
@@ -70,20 +67,18 @@ public class Utils {
             if (width == height)
                 return originalImage;
 
-            int squareSize = height > width ? width : height;
+            int squareSize = Math.min(height, width);
             // Coordinates of the image's middle
             int xc = width / 2;
             int yc = height / 2;
 
             // Crop
-            BufferedImage cropImage = originalImage.getSubimage(
+            return originalImage.getSubimage(
                     xc - (squareSize / 2),  // x coordinate of the upper-left corner
                     yc - (squareSize / 2),  // y coordinate of the upper-left corner
                     squareSize,                // width
                     squareSize                 // height
             );
-
-            return cropImage;
         } catch (IOException e) {
             e.printStackTrace();
             return null;

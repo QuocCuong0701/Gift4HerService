@@ -27,4 +27,9 @@ public class HomeController {
             return Utils.responseData(HttpStatus.INTERNAL_SERVER_ERROR, false, "Get Data Unsuccessfully.", e);
         }
     }
+
+    @GetMapping("/get-all-storage")
+    public Object getAllFromStorage() {
+        return Utils.responseData(HttpStatus.OK, true, "Get Data Successfully.", fileService.getAllFromStorage());
+    }
 }
